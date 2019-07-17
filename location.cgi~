@@ -1,0 +1,21 @@
+#!/usr/bin/ruby
+require 'cgi'
+cgi = CGI.new ("html5")
+
+puts "Content-type: text/html\r\n\r"
+
+puts '<!DOCTYPE html>'
+puts '<html lang="en">'
+puts '<head>'
+
+puts '</head>'
+
+puts '<body>'
+
+puts 'THIS IS FUN!'
+
+puts cgi['city'] + " >>>>>>>> " + cgi['State']
+puts '</body>'
+
+puts '</html>'
+

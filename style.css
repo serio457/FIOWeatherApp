@@ -1,6 +1,12 @@
+/*
+CSS for site
+
+SOURCES: Used https://www.w3schools.com/css/css_table.asp to relearn some CSS
+*/
+
 *{
-    margin: 0;
-    padding: 0;
+    /* margin: 0; */
+    /* padding: 0; */
     box-sizing: border-box;
 }
 
@@ -14,10 +20,44 @@ body {
     font-family: sans-serif;
     color:white;
 }
-/* .location {
-    height: 30vh;
-    width: 70%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-} */
+
+h1 {
+  padding: 30 px;
+}
+
+div {
+    text-align: center;
+}
+
+/* table {
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+  border-width: 1px solid;
+}
+
+td {
+  border-width: 1px solid #ddd;
+  padding: 15px;
+	text-align: center;
+}
+*/
+a {
+float: inline-end;
+}
+
+th {
+  padding: 30 px;
+  height: 50 px;
+  width: 100%;
+}
+
+table {
+  /* border-collapse: collapse; */
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
+
+}
