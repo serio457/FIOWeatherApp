@@ -1,11 +1,22 @@
+
 <!-- 
+FILE: index.html
+Francesco Serio, 2019
+
+    Landing page for the FIO Weather Application Project for Awesome Inc. 
+        Allows user to enter a City and State in the United States of America and search for the weather in that location
+        Presents user with Current Weather, Feels Like, High and Low, and a Description for the day
+        Presents user with 5 day forecast showing High and Low and a Description for the day
+        User is given the option to reset the search and search for a new (city, state) combination
+    
+    Access live webapp here: http://www.cs.transy.edu/fserio/WEATHER
+
 SOURCES:
 https://www.youtube.com/watch?v=wPElVpR1rwA for general refresher on HTML5 and for general understanding of API usage
 
 https://www.youtube.com/watch?v=udXJhn9jslY for walkthough of using json files allowing for API integration.
 
 https://www.rubyguides.com/2018/08/ruby-http-request/ for learning how to do HTTP Requests in Ruby
-
 -->
 
 <!DOCTYPE html>
@@ -15,14 +26,14 @@ https://www.rubyguides.com/2018/08/ruby-http-request/ for learning how to do HTT
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css" />
-    <title>Neat Weather Web Application</title>
+    <title>FIO Weather Web Application</title>
 </head>
 <body>
 	Powered by <a href="https://www.apixu.com/" title="Free Weather API">Apixu.com</a><br>
 	<h1>FIO WEATHER APPLICATION</h1><br>
     <div class = "city">
         <h1 class = "city-search"></h1>
-        <form method = "post" action = "test.cgi">
+        <form method = "post" action = "location.cgi">
             Enter a city:
                 <input name = "city" type = "text">
             Select a state:
@@ -85,22 +96,3 @@ https://www.rubyguides.com/2018/08/ruby-http-request/ for learning how to do HTT
 </body>
 </html>
 
-
-
-<!--     ========== irb console lines to get data needed from api requests ===========  
-
-    
-    require 'net/http'
-
-    foo = Net::HTTP.get('api.apixu.com', '/v1/forecast.json?key=7e3e22f0e430441e99e161226191007&q=lexington,ky&days=5')
-    
-    JSON.parse(foo)
-
-    bar = JSON.parse(foo)
-
-    bar['location']
-
-    fugazi = bar['forecast']
-
-    fugazi['forecastday'].each do |item| puts item['date'] + " === " + item['day']['mintemp_f'].to_s + " === " + item['day']['mintemp_f'].to_s end
--->

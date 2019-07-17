@@ -40,12 +40,12 @@ city = convertCity(city) #store what's converted by convertCity in the variable 
 forecastLocation = String.new("/v1/forecast.json?key=7e3e22f0e430441e99e161226191007&q=" + city.delete(' ')+ "," + cgi['state'] + "&days=6") # uses NET::HTTP.get to access the API   
 foo = Net::HTTP.get('api.apixu.com', forecastLocation) # store the whole hash for the forecast JSON call
 bar = JSON.parse(foo) # parses a JSON string, constructing the JavaScript value or object described by the string
-fugazi = bar['forecast'] # 
+fugazi = bar['forecast'] 
 
 currentLocation = String.new("/v1/current.json?key=7e3e22f0e430441e99e161226191007&q=" + city.delete(' ')+ "," + cgi['state'])# uses NET::HTTP.get to access the API
 foo2 = Net::HTTP.get('api.apixu.com', currentLocation) # 
 bar2 = JSON.parse(foo2) # parses a JSON string, constructing the JavaScript value or object described by the string
-fugazi2 = bar2['current'] #
+fugazi2 = bar2['current'] 
 
 
 puts "Content-type: text/html\r\n\r"
@@ -62,14 +62,16 @@ puts '</head>'
      puts '<body>'
      	puts '<div>'
 		puts '<h1> The weather in ' + city + ', ' + cgi['state'] + ' is </h1>'
-		puts '<table class = "egt">'
+		
+		# print the information drawn out from 'current' to a table
+		puts '<table class = "egt">' 
                         puts '<tr>'
                                 puts '<th>Current Temp (F)</th>'
-                                puts '<th>	Feels Like (F)</th>'
-                                puts '<th>	Predicted High (F)</th>'
-                                puts '<th>	Predicted Low (F)</th>'
-                                puts '<th>	Description</th>'
-				puts '<th>	Icon</th>'
+                                puts '<th>Feels Like (F)</th>'
+                                puts '<th>Predicted High (F)</th>'
+                                puts '<th>Predicted Low (F)</th>'
+                                puts '<th>Description</th>'
+								puts '<th>	Icon</th>'
                         puts '</tr>'
 
 			puts '<tr>'
@@ -85,7 +87,8 @@ puts '</head>'
      	
      	puts '<div>'
      		puts '<h2> 5 Day Forecast </h2>'
-      		
+		  
+		# print the information drawn out from 'forecast' to a table	
 		puts '<table class = "egt">'
 			puts '<tr>'
 				puts '<th>Day</th>'
@@ -112,7 +115,7 @@ puts '</head>'
 			puts '</table>'
 	puts '</div>'	
     	
-	puts 'Click <a href="http://www.cs.transy.edu/fserio/WEATHER">here</a> to search for weather in another location!'
+	puts '<br><br><footer>Click <a href="http://www.cs.transy.edu/fserio/WEATHER">here</a> to search for weather in another location!</footer>'
 
      puts '</body>'
 puts '</html>'
